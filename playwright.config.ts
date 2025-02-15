@@ -19,13 +19,13 @@ export default defineConfig({
     ['json', { outputFile: 'playwright-report/jsonReport.json' }],
   ],
   /* Run tests in files in parallel */
-  fullyParallel: false,
+  fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 1 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 1,
+  workers: process.env.CI ? 1 : 3,
   timeout: 2 * 60 * 1000,
   expect: {
     timeout: 30 * 1000,
