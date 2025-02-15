@@ -14,3 +14,26 @@ Use following configuration
 √ Where to put your end-to-end tests? · tests
 √ Add a GitHub Actions workflow? (y/N) · false
 √ Install Playwright browsers (can be done manually via 'npx playwright install')? (Y/n) · true
+
+Project Structure is like following
+node_modules - contains libraries
+tests - test files reside here. it should be like *.spec.ts
+tests-examples - contains test examples.
+package.json - file to describe overall project and dev dependenciesto install in project
+playwright.config.ts - main config file for playwright
+
+# Test Execution with CLI
+npx playwright test -> execute test case headlessly on all browsers defined in playwright.config.ts
+npx playwright show-report -> will open index.html file on localhost url
+npx playwright test --project=chromium -> executes test cases headlessly only on chrome
+npx playwright test --project=chromium --headed - > execute test cases with browser open
+npx playwright test {test case file name} -- project=chromium --headed -> execute test cases of specific test file
+npx playwright test -g "{test case name}" -- project=chromium --headed -> execute specific test case
+
+# Test execution with UI
+npx playwright test --ui
+
+# Tracing and Debugging
+npx playwright test --project=chromium --trace on
+npx playwright test --project=chromium --debug
+
